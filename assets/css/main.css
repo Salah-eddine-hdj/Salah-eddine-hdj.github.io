@@ -69,96 +69,16 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* PHP Email Form Messages
-------------------------------*/
-.php-email-form .error-message {
-  display: none;
-  background: #df1529;
-  color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
 
-.php-email-form .sent-message {
-  display: none;
-  color: #ffffff;
-  background: #059652;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .loading {
-  display: none;
-  background: var(--surface-color);
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-}
-
-.php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
-  border-top-color: var(--surface-color);
-  animation: php-email-form-loading 1s linear infinite;
-}
-
-@keyframes php-email-form-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/*--------------------------------------------------------------
-# Global Header
---------------------------------------------------------------*/
 .header {
-  background-image: url('../img/Capture du 2025-10-28 01-05-48.jpg');
-  
-  /* AJOUTS POUR QUE L'IMAGE S'AFFICHE BIEN */
-  background-size: cover;     /* L'image couvrira tout le header */
-  background-position: center; /* L'image sera centrée */
-  background-repeat: no-repeat; /* Évite que l'image se répète */
-
-  /* --- Tes autres styles (laisse-les) --- */
-  color: var(--default-color);
-  background-color: var(--background-color); /* Garde une couleur de fond si l'image ne charge pas */
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
 }
-/* MODIFICATION : Centre le menu de navigation */
+
 .header .container {
   justify-content: center;
-}
-
-.header .logo {
-  line-height: 1;
-}
-
-.header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
-}
-
-.header .logo h1 {
-  font-size: 32px;
-  margin: 0;
-  font-weight: 400;
-  color: var(--heading-color);
 }
 
 .header .header-social-links {
@@ -195,16 +115,12 @@ h6 {
   }
 }
 
-/* Global Header on Scroll
-------------------------------*/
+
 .scrolled .header {
   --background-color: rgba(16, 26, 32, 0.9);
 }
 
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-/* Desktop Navigation */
+/*Naviguation Menu*/
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
@@ -600,9 +516,7 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Global Page Titles & Breadcrumbs
---------------------------------------------------------------*/
+/*global page titre*/
 .page-title {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -1024,35 +938,7 @@ section,
   outline: none;
 }
 
-.about .intro-content .cta-group .link-underline:hover::after,
-.about .intro-content .cta-group .link-underline:focus::after {
-  transform: scaleX(1);
-}
 
-.about .profile-figure {
-  margin: 0;
-}
-
-.about .profile-figure .profile-photo {
-  width: 88%;
-  max-width: 440px;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 92%);
-  transform: translateY(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-.about .profile-figure .profile-caption {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about .profile-figure .profile-caption .meta {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-}
 
 .about .profile-figure .profile-caption .meta .funfact {
   font-size: 13px;
@@ -1092,11 +978,7 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 25%);
 }
 
-.about .skill-item:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--default-color), transparent 92%);
-}
+
 
 .about .timeline-item {
   position: relative;
@@ -1782,10 +1664,9 @@ section,
     color-mix(in srgb, var(--default-color), transparent 80%) 50%, 
     transparent 100%
   );
-  margin: 60px auto; /* Espace verticalement et centre */
+  margin: 60px auto;
 }
 
-/* --- Ajustements pour les mobiles --- */
 @media (max-width: 992px) {
   .portfolio-project-item {
     height: auto; /* Hauteur auto sur mobile */
