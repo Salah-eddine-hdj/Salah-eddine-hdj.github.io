@@ -1489,7 +1489,7 @@ section,
   background-color: var(--surface-color);
   border-radius: 12px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 450px; 
+  height: 450px; /* On remet la hauteur fixe pour garder la carte propre */
   overflow: hidden; 
 }
 
@@ -1512,8 +1512,7 @@ section,
   height: 100%;
   opacity: 0; 
   overflow: hidden;
-  transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1), 
-              opacity 0.5s ease-in-out 0.2s;
+  transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease-in-out 0.2s;
 }
 
 
@@ -1567,11 +1566,67 @@ section,
 .btn-show-details i { margin-right: 8px; }
 
 .project-desc-content {
-  padding: 30px;
-  height: 100%;
+  padding: 40px 30px 30px 30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; 
+  height: 100%;
+  overflow-y: auto;
+}
+
+.btn-details-accordion {
+  margin: 10px 0 20px 0;
+}
+
+.btn-details-accordion summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  padding: 8px 15px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border: 1px dashed var(--accent-color);
+  border-radius: 8px;
+  list-style: none; /* Enlève la flèche noire moche par défaut */
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-details-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.btn-details-accordion summary:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+/* Style de la boîte qui apparaît quand on clique */
+.prof-criteria-box {
+  margin-top: 15px;
+  padding: 15px;
+  background: color-mix(in srgb, var(--surface-color), black 10%);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 0 8px 8px 0;
+}
+
+.prof-criteria-box h4 {
+  font-size: 0.95rem;
+  color: var(--accent-color);
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.prof-criteria-box p, 
+.prof-criteria-box ul {
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+}
+
+.prof-criteria-box ul {
+  padding-left: 20px;
 }
 .project-desc-content h3 {
   font-size: 1.8rem;
@@ -1631,62 +1686,164 @@ section,
    STYLE - PORTFOLIO STACK (VERTICAL)
    ======================================================== */
 
-/* Conteneur pour chaque projet */
-.portfolio-project-item {
+/* =======================================================
+   PORTFOLIO SECTION (NETTOYÉ ET RÉPARÉ)
+   ======================================================== */
+.portfolio-main-slider {
+  width: 100%;
+  padding-bottom: 50px; 
+}
+
+.portfolio-slide-item {
+  position: relative;
   background-color: var(--surface-color);
   border-radius: 12px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 450px; /* Garde la hauteur fixe */
-  overflow: hidden; /* Important */
+  height: 450px; /* On remet la hauteur fixe pour garder ta carte propre */
+  overflow: hidden; 
 }
 
-.portfolio-project-item .project-images-col {
-  width: 60%;
+.portfolio-slide-item .row {
+  display: flex;
+  flex-wrap: nowrap; 
   height: 100%;
 }
 
-.portfolio-project-item .project-desc-col {
-  width: 40%;
+/* 1. État par défaut : L'image prend 100%, le texte est invisible à 0% */
+.project-images-col {
+  position: relative;
+  width: 100%; 
   height: 100%;
-  opacity: 1;
+  transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+.project-desc-col {
+  width: 0%; 
+  height: 100%;
+  opacity: 0; 
   overflow: hidden;
+  transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1), 
+              opacity 0.5s ease-in-out 0.2s;
+}
+
+/* 2. État actif (Quand tu cliques sur le bouton bleu de l'image) : Le tiroir s'ouvre */
+.portfolio-slide-item.details-visible .project-images-col {
+  width: 60%; 
+}
+
+.portfolio-slide-item.details-visible .project-desc-col {
+  width: 40%; 
+  opacity: 1;
+}
+
+/* On cache les boutons de l'image quand le tiroir est ouvert */
+.portfolio-slide-item.details-visible .btn-show-details,
+.portfolio-slide-item.details-visible .project-buttons-overlay {
+  display: none;
+}
+
+/* Paramètres du Slider Swiper (Images) */
+.project-images-slider {
+  width: 100%;
+  height: 100%; 
+}
+.project-images-slider .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+.project-images-slider .swiper-pagination .swiper-pagination-bullet {
+  background-color: #fff; opacity: 0.7;
+}
+.project-images-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color); opacity: 1;
+}
+
+/* Boutons flottants sur l'image (Pour ouvrir le tiroir) */
+.project-buttons-overlay {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex; 
+  gap: 10px;
+  z-index: 10;
+}
+
+.btn-lightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1;
+  transition: all 0.3s;
+  border: none;
+}
+.btn-lightbox:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+.btn-lightbox i { font-size: 16px; }
+
+.btn-show-details {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: 2px solid var(--accent-color);
+  position: static; 
+}
+.btn-show-details:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+}
+.btn-show-details i { font-size: 16px; margin-right: 8px; }
+
+/* 3. Intérieur du tiroir (Texte de description) */
+.project-desc-content {
+  padding: 40px 30px 30px 30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Important pour que le texte parte d'en haut */
+  height: 100%;
+  overflow-y: auto; /* Permet de scroller uniquement dans le texte */
 }
 
-.project-divider {
-  width: 60%; /* Ne prend pas toute la largeur */
-  height: 1px;
-  background: linear-gradient(
-    to right, 
-    transparent 0%, 
-    color-mix(in srgb, var(--default-color), transparent 80%) 50%, 
-    transparent 100%
-  );
-  margin: 60px auto;
+.project-desc-content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+.project-desc-content p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+.project-desc-content h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.project-tech-icons {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 15px;
+  font-size: 2rem; 
+  margin-bottom: 25px;
 }
 
-@media (max-width: 992px) {
-  .portfolio-project-item {
-    height: auto; /* Hauteur auto sur mobile */
-  }
-
-  /* Sur mobile, on met l'image (100%) */
-  .portfolio-project-item .project-images-col {
-    width: 100%;
-    height: 300px; /* Hauteur fixe pour l'image mobile */
-  }
-  
-  /* Et la description (100%) en dessous */
-  .portfolio-project-item .project-desc-col {
-    width: 100%;
-  }
-
-  .project-divider {
-    margin: 40px auto;
-  }
-}
+/* Boutons d'action (Code, Retour) à l'intérieur du tiroir */
 .project-buttons-group {
   display: flex;
   flex-wrap: wrap; 
@@ -1694,6 +1851,27 @@ section,
   margin-top: auto; 
   align-self: flex-start;
 }
+
+.btn-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: var(--surface-color);
+  color: var(--default-color);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: 2px solid var(--default-color);
+  margin-top: auto; 
+  align-self: flex-start; 
+}
+.btn-github:hover {
+  background-color: var(--default-color);
+  color: var(--background-color);
+}
+.btn-github i { font-size: 1.2rem; }
 
 .btn-hide-details {
   display: inline-flex;
@@ -1707,137 +1885,88 @@ section,
   font-weight: 600;
   transition: all 0.3s;
   border: 2px solid var(--default-color);
+  cursor: pointer;
 }
-
 .btn-hide-details:hover {
   background-color: var(--default-color);
   color: var(--background-color);
 }
+.btn-hide-details i { font-size: 1.2rem; }
 
-.btn-hide-details i {
-  font-size: 1.2rem;
-}
-
-/* S'assure que l'ancien bouton GitHub est bien aligné */
-.project-desc-content .btn-github {
-  margin-top: 0; 
-}
-
-.project-images-slider .plus-icon { display: none; }
-.project-images-slider .swiper-slide a::after { display: none; }
-
-
-.project-actions-overlay {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10;
-  display: flex;
-  gap: 10px; 
-}
-
-
-.btn-show-lightbox {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: var(--background-color);
-  border-color: rgba(255, 255, 255, 0.9);
-}
-
-.btn-show-lightbox:hover {
-  background-color: transparent;
-  color: #ffffff;
-  border-color: #ffffff;
-}
-
-.portfolio-slide-item.details-visible .project-actions-overlay {
-  display: none;
-}
-    .project-buttons-overlay {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      gap: 10px;
-      z-index: 10;
-    }
-
-    .project-buttons-overlay .btn-show-details,
-    .project-buttons-overlay .btn-lightbox {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 15px;
-      border-radius: 4px;
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      line-height: 1;
-      transition: all 0.3s;
-      position: static;
-    }
-
-    .project-buttons-overlay .btn-lightbox {
-      padding: 8px 12px;
-    }
-
-.project-buttons-overlay {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  display: flex; 
-  gap: 10px;
-  z-index: 10;
-}
-
-.project-buttons-overlay .btn-lightbox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 12px;
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  line-height: 1;
-  transition: all 0.3s;
-  position: static;
-  border: none;
-}
-.project-buttons-overlay .btn-lightbox:hover {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
-}
-.project-buttons-overlay .btn-lightbox i {
-  font-size: 16px;
-}
-
-.project-buttons-overlay .btn-show-details {
+/* 4. Le fameux bouton "+ Plus d'infos" (déroulant) */
+.btn-toggle-info {
   display: inline-flex;
   align-items: center;
-  
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  padding: 10px 18px;
-  border-radius: 50px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s;
-  border: 2px solid var(--accent-color);
-  position: static; 
-}
-.project-buttons-overlay .btn-show-details:hover {
+  gap: 8px;
+  padding: 10px 20px;
   background-color: transparent;
   color: var(--accent-color);
+  border-radius: 50px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 50%);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
-.project-buttons-overlay .btn-show-details i {
-  font-size: 16px;
-  margin-right: 8px; 
+.btn-toggle-info:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 10%);
+}
+.btn-toggle-info i {
+  transition: transform 0.3s ease;
+}
+.btn-toggle-info[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+.btn-toggle-info[aria-expanded="false"] .text-less { display: none; }
+.btn-toggle-info[aria-expanded="true"] .text-more { display: none; }
+
+/* Design du texte caché par le bouton "+ Plus d'infos" */
+.prof-details-text h4 {
+  font-size: 1rem;
+  color: var(--accent-color);
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.prof-details-text p, 
+.prof-details-text ul {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 10px;
+}
+.prof-details-text ul {
+  padding-left: 20px;
 }
 
-.portfolio-slide-item.details-visible .project-buttons-overlay {
-  display: none;
+/* Arrows du slider global */
+.portfolio-main-slider .swiper-button-prev,
+.portfolio-main-slider .swiper-button-next {
+  color: var(--accent-color);
+}
+.portfolio-main-slider .swiper-pagination-fraction {
+  bottom: 0;
+  color: var(--default-color);
+  opacity: 0.7;
+}
+
+/* Adaptation pour écrans mobiles */
+@media (max-width: 992px) {
+  .portfolio-slide-item {
+    height: auto;
+  }
+  .portfolio-slide-item .row {
+    flex-direction: column;
+  }
+  .project-images-col,
+  .portfolio-slide-item.details-visible .project-images-col {
+    width: 100%;
+    height: 300px;
+  }
+  .project-desc-col,
+  .portfolio-slide-item.details-visible .project-desc-col {
+    width: 100%;
+    height: auto;
+  }
 }
 
 
@@ -1921,4 +2050,52 @@ section,
   background: var(--accent-color); 
   color: var(--contrast-color);
   transform: translateY(-3px);
+}
+
+/* Style du bouton Plus / Moins d'infos */
+.btn-toggle-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: var(--accent-color);
+  border-radius: 50px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 50%);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-toggle-info:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 10%);
+}
+
+.btn-toggle-info i {
+  transition: transform 0.3s ease;
+}
+.btn-toggle-info[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+.btn-toggle-info[aria-expanded="false"] .text-less { display: none; }
+.btn-toggle-info[aria-expanded="true"] .text-more { display: none; }
+
+.prof-details-text h4 {
+  font-size: 1rem;
+  color: var(--accent-color);
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.prof-details-text p, 
+.prof-details-text ul {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 10px;
+}
+
+.prof-details-text ul {
+  padding-left: 20px;
 }

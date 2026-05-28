@@ -54,7 +54,7 @@
             <div class="hero-content">
               <h1 data-aos="fade-up" data-aos-delay="200">Hello, I'm <span class="highlight">Houaidj Salah-eddine</span></h1>
               <h2 data-aos="fade-up" data-aos-delay="300">Étudiant <span class="typed" data-typed-items="CURIEUX,PASSIONÉ,SÉRIEUX"></span></h2>
-              <p data-aos="fade-up" data-aos-delay="400">Étudiant en 2ᵉ année de BUT Informatique à l’IUT de Lille, je recherche un stage de 10 semaines à partir d’avril. Motivé et curieux, je souhaite mettre en pratique mes compétences en programmation, bases de données et systèmes, tout en développant mon expérience professionnelle.</p>
+              <p data-aos="fade-up" data-aos-delay="400">Étudiant en 2ᵉ année de BUT Informatique à l’IUT de Lille, je recherche un stage de 8 semaines dès maintenant. Motivé et curieux, je souhaite mettre en pratique mes compétences en programmation, bases de données et systèmes, tout en développant mon expérience professionnelle. Je suis également particulièrement ouvert aux opportunités liées au secteur de la Data.</p>
               <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
                 <a href="#portfolio" class="btn btn-primary">Voir mes projets</a>
                 <a href="#contact" class="btn btn-outline">Me contacter</a>
@@ -81,6 +81,7 @@
         </svg>
       </div>
     </section>
+
     <section id="about" class="about section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="container section-title" data-aos="fade-up">
@@ -143,6 +144,7 @@
         </div>
       </div>
     </section>
+
     <section id="skills" class="skills section">
       <div class="container">
         <div class="container section-title" data-aos="fade-up">
@@ -192,6 +194,7 @@
         </div>
       </div>
     </section>
+
     <section id="portfolio" class="portfolio section">
 
       <div class="container section-title" data-aos="fade-up">
@@ -205,6 +208,7 @@
           
           <div class="swiper-wrapper">
 
+            <!-- PROJET 1 : SITE WEB -->
             <div class="swiper-slide">
               <div class="portfolio-slide-item">
                 <div class="row g-0">
@@ -229,7 +233,25 @@
                   <div class="project-desc-col">
                     <div class="project-desc-content">
                       <h3>Vitrine site web</h3>
-                      <p>Ce projet consiste en la création d’un site web vitrine pour présenter un nouveau moyen de transport éco-responsable imaginé pour la marque Bandai. Le site met en avant l’innovation, la durabilité et l’esprit ludique propre à Bandai.</p>
+                      <p>Ce projet consiste en la création d’un site web vitrine pour présenter un nouveau moyen de transport éco-responsable imaginé pour la marque Bandai.</p>
+                      
+                      <!-- Déroulant Projet 1 -->
+                      <div class="collapse" id="details-web">
+                        <div class="prof-details-text">
+                          <h4>🎯 Contexte & Objectifs</h4>
+                          <p><strong>Cadre :</strong> SAÉ 1.05 / 1.06 - Travail de groupe.<br>
+                          <strong>Objectif :</strong> Concevoir une interface attractive, ergonomique et responsive en utilisant les bases du web.</p>
+                          <h4>🛠️ Compétences mobilisées</h4>
+                          <ul>
+                            <li><strong>Hard skills :</strong> Intégration web (HTML5/CSS3), interactions JavaScript.</li>
+                            <li><strong>Soft skills :</strong> <em>Créativité</em> (design UI/UX), <em>Adaptabilité</em> (responsive design).</li>
+                          </ul>
+                          <h4>🧠 Analyse réflexive</h4>
+                          <p><strong>Apprentissages :</strong> J'ai découvert comment structurer proprement le DOM et maîtriser Flexbox.<br>
+                          <strong>Difficultés :</strong> Rendre le site parfaitement compatible avec les mobiles. J'ai surmonté cela grâce aux Media Queries.</p>
+                        </div>
+                      </div>
+
                       <h4>Technologies utilisées :</h4>
                       <div class="project-tech-icons">
                         <i class="devicon-html5-plain colored" title="HTML5"></i>
@@ -237,8 +259,13 @@
                         <i class="devicon-javascript-plain colored" title="JavaScript"></i>
                       </div>
                       <div class="project-buttons-group">
+                        <button class="btn-toggle-info" type="button" data-bs-toggle="collapse" data-bs-target="#details-web" aria-expanded="false">
+                          <span class="text-more">Plus d'infos</span>
+                          <span class="text-less">Moins d'infos</span>
+                          <i class="bi bi-chevron-down"></i>
+                        </button>
                         <a href="https://github.com/Salah-eddine-hdj/SA-1.05-1.06-Plateforme-de-covoiturage-en-ligne" class="btn-github" target="_blank">
-                          <i class="bi bi-github"></i> Voir le code
+                          <i class="bi bi-github"></i> Code
                         </a>
                         <a href="#" class="btn-hide-details">
                           <i class="bi bi-arrow-left"></i> Retour
@@ -250,6 +277,7 @@
               </div>
             </div> 
             
+            <!-- PROJET 2 : ÉCHECS -->
             <div class="swiper-slide">
               <div class="portfolio-slide-item">
                 <div class="row g-0">
@@ -274,14 +302,38 @@
                   <div class="project-desc-col">
                     <div class="project-desc-content">
                       <h3>Jeu d'échecs (Terminal)</h3>
-                      <p>Développement d'un jeu d'échecs en méthode agile(par groupe de 5) fonctionnel jouable entièrement dans le terminal. Ce projet met l'accent sur la logique de jeu, la gestion des états, les déplacements,et la programmation orientée objet en Java.</p>
+                      <p>Développement d'un jeu d'échecs en méthode agile (par groupe de 5) fonctionnel jouable entièrement dans le terminal. Accent sur la POO.</p>
+                      
+                      <!-- Déroulant Projet 2 -->
+                      <div class="collapse" id="details-echecs">
+                        <div class="prof-details-text">
+                          <h4>🎯 Contexte & Objectifs</h4>
+                          <p><strong>Cadre :</strong> Projet académique (SAÉ) - Réalisé en groupe de 5.<br>
+                          <strong>Mon rôle :</strong> Implémentation du moteur de jeu et validation des déplacements.</p>
+                          <h4>🛠️ Compétences mobilisées</h4>
+                          <ul>
+                            <li><strong>Hard skills :</strong> POO Java (héritage, polymorphisme), Git/GitHub.</li>
+                            <li><strong>Soft skills :</strong> <em>Travail en équipe</em> (Agile), <em>Résolution de problèmes</em>.</li>
+                          </ul>
+                          <h4>🧠 Analyse réflexive</h4>
+                          <p><strong>Apprentissages :</strong> Consolidation de la logique algorithmique complexe.<br>
+                          <strong>Difficultés :</strong> Gestion des conflits Git, résolue par la communication sur Discord.<br>
+                          <strong>Avec le recul :</strong> J'aurais implémenté des tests unitaires plus tôt.</p>
+                        </div>
+                      </div>
+
                       <h4>Technologies utilisées :</h4>
                       <div class="project-tech-icons">
                         <i class="devicon-java-plain colored" title="Java"></i>
                       </div>
                       <div class="project-buttons-group">
+                        <button class="btn-toggle-info" type="button" data-bs-toggle="collapse" data-bs-target="#details-echecs" aria-expanded="false">
+                          <span class="text-more">Plus d'infos</span>
+                          <span class="text-less">Moins d'infos</span>
+                          <i class="bi bi-chevron-down"></i>
+                        </button>
                         <a href="https://github.com/Salah-eddine-hdj/Echec-en-java-" class="btn-github" target="_blank">
-                          <i class="bi bi-github"></i> Voir le code
+                          <i class="bi bi-github"></i> Code
                         </a>
                         <a href="#" class="btn-hide-details">
                           <i class="bi bi-arrow-left"></i> Retour
@@ -293,6 +345,7 @@
               </div>
             </div> 
 
+            <!-- PROJET 3 : BDD -->
             <div class="swiper-slide">
               <div class="portfolio-slide-item">
                 <div class="row g-0">
@@ -306,26 +359,48 @@
                       <div class="swiper-pagination"></div> 
                     </div>
                     <div class="project-buttons-overlay">
-                      <a href="assets/img/Echec1.png" class="btn-lightbox glightbox" data-gallery="gallery-projet-2">
+                      <a href="assets/img/bdd1.png" class="btn-lightbox glightbox" data-gallery="gallery-projet-3">
                         <i class="bi bi-arrows-fullscreen"></i>
                       </a>
-                      <a href="assets/img/e2.png" class="glightbox" data-gallery="gallery-projet-2" style="display:none;"></a>
-                      <a href="assets/img/clideo_editor_5f5fd20d9ada4058bb3f3559be51fe57.gif" class="glightbox" data-gallery="gallery-projet-2" style="display:none;"></a>
+                      <a href="assets/img/bdd2.png" class="glightbox" data-gallery="gallery-projet-3" style="display:none;"></a>
+                      <a href="assets/img/bdd3.png" class="glightbox" data-gallery="gallery-projet-3" style="display:none;"></a>
                       <a href="#" class="btn-show-details"><i class="bi bi-info-circle-fill"></i> Plus d'infos</a>
                     </div>
                   </div>
                   <div class="project-desc-col">
                     <div class="project-desc-content">
                       <h3>Exploitation BDD</h3>
-                      <p>Projet centré sur l'exploitation et la gestion de bases de données, mettant en œuvre des techniques avancées pour l'interrogation, la manipulation et la visualisation des données.</p>
+                      <p>Projet centré sur l'exploitation et la gestion de bases de données, avec interrogation, manipulation et visualisation.</p>
+                      
+                      <!-- Déroulant Projet 3 -->
+                      <div class="collapse" id="details-bdd">
+                        <div class="prof-details-text">
+                          <h4>🎯 Contexte & Objectifs</h4>
+                          <p><strong>Cadre :</strong> Projet universitaire (SAÉ BD).<br>
+                          <strong>Objectif :</strong> Modéliser et exploiter un jeu de données réel pour en tirer des statistiques fiables.</p>
+                          <h4>🛠️ Compétences mobilisées</h4>
+                          <ul>
+                            <li><strong>Hard skills :</strong> SQL avancé (Jointures, Sous-requêtes), Modélisation (PostgreSQL).</li>
+                            <li><strong>Soft skills :</strong> <em>Esprit d'analyse</em>, <em>Rigueur scientifique</em>.</li>
+                          </ul>
+                          <h4>🧠 Analyse réflexive</h4>
+                          <p><strong>Apprentissages :</strong> L'importance cruciale de l'optimisation des requêtes.<br>
+                          <strong>Difficultés :</strong> La structuration initiale. Résolu en passant plus de temps sur le modèle conceptuel (MCD).</p>
+                        </div>
+                      </div>
+
                       <h4>Technologies utilisées :</h4>
                       <div class="project-tech-icons">
                         <i class="devicon-postgresql-plain colored" title="PostgreSQL"></i>
-                        <!--<i class="bi-file-earmark-excel-fill" title="Excel" style="color: #107c41; font-size: 1.2em; margin-left: 10px;"></i>-->
                       </div>
                       <div class="project-buttons-group">
+                        <button class="btn-toggle-info" type="button" data-bs-toggle="collapse" data-bs-target="#details-bdd" aria-expanded="false">
+                          <span class="text-more">Plus d'infos</span>
+                          <span class="text-less">Moins d'infos</span>
+                          <i class="bi bi-chevron-down"></i>
+                        </button>
                         <a href="stat.pdf" class="btn-github" target="_blank">
-                          <i class="download"></i> Télécahrger le rapport
+                          <i class="bi bi-download"></i> Rapport
                         </a>
                         <a href="#" class="btn-hide-details">
                           <i class="bi bi-arrow-left"></i> Retour
@@ -337,6 +412,7 @@
               </div>
             </div> 
             
+            <!-- PROJET 4 : JEUX LUDO -->
             <div class="swiper-slide">
               <div class="portfolio-slide-item">
                 <div class="row g-0">
@@ -350,24 +426,48 @@
                       <div class="swiper-pagination"></div> 
                     </div>
                     <div class="project-buttons-overlay">
-                      <a href="assets/img/D1.png" class="btn-lightbox glightbox" data-gallery="gallery-projet-3">
+                      <a href="assets/img/D1.png" class="btn-lightbox glightbox" data-gallery="gallery-projet-4">
                         <i class="bi bi-arrows-fullscreen"></i>
                       </a>
-                      <a href="assets/img/D2.png" class="glightbox" data-gallery="gallery-projet-3" style="display:none;"></a>
-                      <a href="assets/img/d3.gif" class="glightbox" data-gallery="gallery-projet-3" style="display:none;"></a> <a href="#" class="btn-show-details"><i class="bi bi-info-circle-fill"></i> Plus d'infos</a>
+                      <a href="assets/img/D2.png" class="glightbox" data-gallery="gallery-projet-4" style="display:none;"></a>
+                      <a href="assets/img/d3.gif" class="glightbox" data-gallery="gallery-projet-4" style="display:none;"></a> 
+                      <a href="#" class="btn-show-details"><i class="bi bi-info-circle-fill"></i> Plus d'infos</a>
                     </div>
                   </div>
                   <div class="project-desc-col">
                     <div class="project-desc-content">
                       <h3>Jeux ludo-pédagogique</h3>
-                      <p>Ce jeu ludo-pédagogique permet aux enfants de découvrir et apprendre des informations sur les animaux tout en s’amusant. Le joueur avance sur un plateau virtuel en lançant un dé depuis le terminal</p>
+                      <p>Ce jeu permet aux enfants d'apprendre des informations sur les animaux en avançant sur un plateau virtuel.</p>
+                      
+                      <!-- Déroulant Projet 4 -->
+                      <div class="collapse" id="details-ludo">
+                        <div class="prof-details-text">
+                          <h4>🎯 Contexte & Objectifs</h4>
+                          <p><strong>Cadre :</strong> Projet d'initiation au développement.<br>
+                          <strong>Objectif :</strong> Lier la programmation Java à une dimension éducative et interactive.</p>
+                          <h4>🛠️ Compétences mobilisées</h4>
+                          <ul>
+                            <li><strong>Hard skills :</strong> Algorithmique Java, gestion I/O dans le terminal.</li>
+                            <li><strong>Soft skills :</strong> <em>Empathie utilisateur</em> (penser le jeu pour des enfants), <em>Autonomie</em>.</li>
+                          </ul>
+                          <h4>🧠 Analyse réflexive</h4>
+                          <p><strong>Apprentissages :</strong> Structurer une boucle de jeu propre (Game Loop).<br>
+                          <strong>Difficultés :</strong> Rendre l'affichage textuel attractif, résolu en ajoutant des éléments graphiques ASCII.</p>
+                        </div>
+                      </div>
+
                       <h4>Technologies utilisées :</h4>
                       <div class="project-tech-icons">
                         <i class="devicon-java-plain colored" title="Java"></i>
                       </div>
                       <div class="project-buttons-group">
+                        <button class="btn-toggle-info" type="button" data-bs-toggle="collapse" data-bs-target="#details-ludo" aria-expanded="false">
+                          <span class="text-more">Plus d'infos</span>
+                          <span class="text-less">Moins d'infos</span>
+                          <i class="bi bi-chevron-down"></i>
+                        </button>
                         <a href="https://github.com/Salah-eddine-hdj/D-couverte-Animal" class="btn-github" target="_blank">
-                          <i class="bi bi-github"></i> Voir le code
+                          <i class="bi bi-github"></i> Code
                         </a>
                         <a href="#" class="btn-hide-details">
                           <i class="bi bi-arrow-left"></i> Retour
@@ -389,6 +489,7 @@
       </div>
 
     </section>
+
     <section id="contact" class="contact section">
 
       <div class="container section-title" data-aos="fade-up">
@@ -426,7 +527,7 @@
       </div>
 
     </section>
-    </main>
+  </main>
 
   <footer id="footer" class="footer">
     <div class="container">
@@ -448,5 +549,5 @@
 
   <script src="assets/js/script.js"></script>
   <script src="assets/js/main.js?v=5"></script> 
-  </body>
+</body>
 </html>
